@@ -40,6 +40,17 @@ enum CPUStates {
   kGuest_,
   kGuestNice_
 };
+
+//Adding memory types enum
+enum MemoryTypes
+{
+  kMemTotal_=0,
+  kMemFree_,
+  KMemAvailable_,
+  KMemBuffer_,
+  KMemCached
+};
+
 std::vector<std::string> CpuUtilization();
 long Jiffies();
 long ActiveJiffies();
