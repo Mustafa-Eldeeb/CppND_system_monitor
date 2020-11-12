@@ -16,6 +16,13 @@ Process::Process(int pid, long total_jiffies):pid_(pid)
     calculateCpuUtil(total_jiffies);
 }
 
+//setter for cpu_utilization_ private variable
+void Process::calculateCpuUtil(long total_jiffies)
+{
+    long active_jiffies = LinuxParser::ActiveJiffies(pid_);
+    cpu_utiliaztion_ = (active_jiffies*1.0)/total_jiffies ;
+}
+
 // TODO: Return this process's ID
 int Process::Pid() { return pid_; }
 
