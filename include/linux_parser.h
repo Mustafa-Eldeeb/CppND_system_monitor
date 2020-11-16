@@ -60,6 +60,8 @@ enum MemoryType {
   kMemCached_
 };
 
+enum CPUTime { kIdleTime_ = 0, kActiveTime_, kTotalTime_ };
+
 std::vector<std::string> CpuUtilization();
 long Jiffies();
 long ActiveJiffies();

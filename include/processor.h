@@ -13,7 +13,7 @@ class Processor {
   long getTotalJiffies();
   // TODO: Declare any necessary private members
  private:
- void CalculateDeltaTime(std::array<long,4>&,std::array<long,3>&);
+ void CalculateDeltaTime(std::array<long,3>&,std::array<long,3>&);
  virtual void GetLinuxParserForJiffies(std::array<long,3>&);
  float CalculateUtilization();
  void UpdatePrevJiffies();
