@@ -153,6 +153,7 @@ long LinuxParser::ActiveJiffies(int pid)
   return jiffies_active; //return initialized active jiffies
 }
 
+
 // TODO: Read and return the number of active jiffies for the system
 long LinuxParser::ActiveJiffies() 
 { 

@@ -42,6 +42,7 @@ enum CPUStates {
 };
 
 //Adding memory types enum
+
 enum MemTypes
 {
   kMemTotal_=0,
@@ -49,6 +50,14 @@ enum MemTypes
   KMemAvailable_,
   KMemBuffer_,
   KMemCached_
+};
+
+enum MemoryType {
+  kMemTotal_ = 0,
+  kMemFree_,
+  kMemAvailable_,
+  kMemBuffer_,
+  kMemCached_
 };
 
 std::vector<std::string> CpuUtilization();
