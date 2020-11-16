@@ -268,7 +268,7 @@ string LinuxParser::Command(int pid)
 
 // TODO: Read and return the memory used by a process
 // REMOVE: [[maybe_unused]] once you define the function
-float LinuxParser::Ram(int pid[[maybe_unused]])
+std::string LinuxParser::Ram(int pid)
 {
   const float kb_to_mb =1000;
   std::string key,line;
@@ -283,14 +283,14 @@ float LinuxParser::Ram(int pid[[maybe_unused]])
       {
         if(key == "VmSize:")
         {
-          return val / kb_to_mb ;
+          return to_string(val / kb_to_mb) ;
         }
 
       }
       
     }
   }
-  return val;
+  return to_string(val);
 }
 
 // TODO: Read and return the user ID associated with a process
