@@ -40,7 +40,7 @@ long Processor::getTotalJiffies()
 {
     return current_cpu_jiffies_[LinuxParser::CPUTime::kTotalTime_];
 }
-
+/*
 void Processor::UpdatePrevJiffies()
 {
     for(size_t i =0; i<prev_cpu_jiffies_.size(); ++i)
@@ -48,3 +48,4 @@ void Processor::UpdatePrevJiffies()
         prev_cpu_jiffies_[i]=current_cpu_jiffies_[i];
     }
 }
+*/
