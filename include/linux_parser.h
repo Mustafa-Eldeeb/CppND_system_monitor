@@ -51,7 +51,7 @@ enum MemTypes
   KMemBuffer_,
   KMemCached_
 };
-
+/*
 enum MemoryType {
   kMemTotal_ = 0,
   kMemFree_,
@@ -59,7 +59,7 @@ enum MemoryType {
   kMemBuffer_,
   kMemCached_
 };
-
+*/
 enum CPUTime { kIdleTime_ = 0, kActiveTime_, kTotalTime_ };
 
 std::vector<std::string> CpuUtilization();
