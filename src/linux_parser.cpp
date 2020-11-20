@@ -35,13 +35,13 @@ string LinuxParser::OperatingSystem() {
 
 // DONE: An example of how to read data from the filesystem
 string LinuxParser::Kernel() {
-  string os, kernel;
+  string os,version ,kernel;
   string line;
   std::ifstream stream(kProcDirectory + kVersionFilename);
   if (stream.is_open()) {
     std::getline(stream, line);
     std::istringstream linestream(line);
-    linestream >> os >> kernel;
+    linestream >> os >>version>> kernel;
   }
   return kernel;
 }
@@ -269,7 +269,7 @@ string LinuxParser::Command(int pid)
 
 // TODO: Read and return the memory used by a process
 // REMOVE: [[maybe_unused]] once you define the function
-std::string LinuxParser::Ram(int pid)
+/*std::string LinuxParser::Ram(int pid)
 {
   const float kb_to_mb =1000;
   std::string key,line;
@@ -292,6 +292,24 @@ std::string LinuxParser::Ram(int pid)
     }
   }
   return to_string(val);
+}
+*/
+float LinuxParser::Ram(int pid) {
+  const float kb_to_mb = 1000;
+  string key, line;
+  float value{0.0};
+  std::ifstream filestream(kProcDirectory + to_string(pid) + kStatusFilename);
+  if (filestream.is_open()) {
+    while (std::getline(filestream, line)) {
+      std::istringstream linestream(line);
+      while (linestream >> key >> value) {
+        if (key == "VmSize:") {
+          return value / kb_to_mb;
+        }
+      }
+    }
+  }
+  return value;
 }
 
 // TODO: Read and return the user ID associated with a process
